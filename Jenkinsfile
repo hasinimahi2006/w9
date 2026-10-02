@@ -5,18 +5,18 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 echo "Build Docker Image"
-                bat "docker build -t kubdemoapp:v1 ."
+                bat "docker build -t myimg:v1 ."
             }
         }
         stage('Docker Login') {
             steps {
-                  bat 'docker login -u hasini006 -p Hasinimahi'
+                  bat 'docker login -u hasini006 -p Hasimimahi'
                 }
             }
         stage('push Docker Image to Docker Hub') {
             steps {
                 echo "push Docker Image to Docker Hub"
-                bat "docker tag kubdemoapp:v1 hasini006/sample:latest"               
+                bat "docker tag myimg:v1 hasini006/sample:latest"               
                     
                 bat "docker push hasini006/sample:latest"
                 
